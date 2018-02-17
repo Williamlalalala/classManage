@@ -1,0 +1,22 @@
+.wall {
+	height:700px;
+	width:100%;
+	background-image:url(../images/Teacherback.jpg);
+}
+
+.headline{
+	color: #428bca;
+	text-align: left;
+}
+
+.info-div{
+	padding: 0px 20px;
+}
+
+.work-div{
+	padding: 0px 20px;
+}
+
+.hide{
+	display: none;
+}

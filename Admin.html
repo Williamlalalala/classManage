@@ -1,0 +1,82 @@
+<html>
+<head>
+	<title>管理员用户</title>
+<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+<link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/admin.css">
+</head>
+<body class="admin-back">
+<div>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-target=".navbar-responsive-collapse" data-toggle="collapse"></a> <a class="brand" href="#">管理员</a>
+				<div class="nav-collapse collapse navbar-responsive-collapse">
+					<ul class="nav">
+						<li class="active teacher-information">
+							<a>教师信息</a>
+						</li>
+						<li class="course-information">
+							<a>课程信息</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="teacher-info">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>工号</th>
+					<th>登录密码</th>
+					<th>重置密码</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>白忠建</td>
+					<td>123456789</td>
+					<td>123456</td>
+					<td><button type="button" class="btn btn-info">重置</button></td>
+				</tr>
+				<tr>
+					<td>李巧勤</td>
+					<td>987654321</td>
+					<td>654321</td>
+					<td><button type="button" class="btn btn-info">重置</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<button class="btn btn-info btn-large" type="button">导入教师名单</button>
+	</div>
+	<div class="course-info hide">
+		<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>课程名称</th>
+				<th>课程简介</th>
+				<th>选课人数</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>C++程序设计</td>
+				<td></td>
+				<td>300</td>
+			</tr>
+			<tr>
+				<td>数据库原理及应用</td>
+				<td></td>
+				<td>700</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+<script type="text/javascript" src="./js/admin.js"></script>
+</body>
+</html>

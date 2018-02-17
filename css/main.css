@@ -1,0 +1,110 @@
+/*登录*/
+.login_logo.comWidth{
+	width: 460px;
+}
+
+*{
+	margin:0px; 
+	padding:0px; 
+	font-size:12px; 
+	font-family:"宋体"; 
+	width:auto;
+}
+
+#mid{ 
+	height:500px; 
+	text-aligh:center;  
+	background-size: 100% 100%;
+}
+
+.welcome_title{
+	font: 22px/85px "Microsoft YaHei","微软雅黑";
+	color: #FFF;
+	float: left;
+	padding-left: 24px;
+}
+
+.loginBox{
+	width: 458px;
+	border: 0px none #999;
+	margin: 0px auto;
+	padding: 30px;
+}
+
+.login_cont{
+	padding: 15px 53px;
+	margin: 50px auto;
+}
+
+ul{
+	list-style-type:none;
+	margin:0px;
+}
+.l_tit{
+	color: #666;
+	line-height: 20px;
+	font-size: 20px;
+}
+
+.user_icon{
+	background-image: url(../images/user_icon.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+.lock{
+	background-image: url(../images/lock.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+.mb_10{
+	margin-bottom: 10px;
+}
+
+.student{
+	padding-top: 27px;
+	padding-bottom: 28px;
+	float: left;
+}
+
+.cheked{position: relative;top: 3px;margin-right: 3px;}
+
+.login_btn{
+	width: 352px;
+	height: 50px;
+	background: url(../images/login_btn.png) left top no-repeat;
+	margin: 25px 0px;
+}
+
+.wall{
+	height: 700px;
+	width: 100%;
+	background-image: url(../images/back1.png);
+	}
+
+.wall1{
+	height: 700px;
+	width: 100%;
+	background-image: url(../images/Studentback.jpg);
+	}
+
+.button{
+	display: inline-block;
+    width: 50px;
+    height: 45px;
+    background: transparent;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+}
+
+.login_input{
+	border: #999 solid 1px;
+	height: 32px;
+	line-height: 32px\9;
+	text-indent: 5px;
+	width: 338px;
+}
+
+.hide{
+	display: none;
+}

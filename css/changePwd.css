@@ -1,0 +1,23 @@
+.wall {
+	height:700px;
+	width:100%;
+	background-image:url(../images/changePwdBack.jpg);
+}
+
+p {
+	display: inline-block;
+}
+
+.input-div {
+	text-align: center;
+	margin: 50px 0px;
+}
+
+.input-div3 {
+	text-align: center;
+}
+
+.change-button {
+	text-align: center;
+	margin-top: 10px;
+}
