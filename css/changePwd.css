@@ -6,14 +6,15 @@
 
 p {
 	display: inline-block;
+	font-size: 18px;
 }
 
 .input-div {
 	text-align: center;
-	margin: 50px 0px;
+	margin: 40px 0px;
 }
 
-.input-div3 {
+.input-div-last {
 	text-align: center;
 }
 

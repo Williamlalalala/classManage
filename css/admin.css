@@ -4,6 +4,10 @@
 	background-image: url(../images/adminBack.jpg);
 }
 
+#btn-file{
+	display: none;
+}
+
 .hide{
 	display: none;
 }
