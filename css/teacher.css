@@ -1,7 +1,7 @@
 .wall {
 	height:700px;
 	width:100%;
-	background-image:url(../images/Teacherback.jpg);
+	background-image:url(../images/teacherBack.jpg);
 }
 
 .headline{
@@ -15,6 +15,16 @@
 
 .work-div{
 	padding: 0px 20px;
+}
+
+.back{
+	display: inline-block;
+	width:40px;
+	float: right;
+}
+
+.back a{
+	font-size: 16px;
 }
 
 .hide{

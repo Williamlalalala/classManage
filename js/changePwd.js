@@ -1,0 +1,32 @@
+$(function(){
+	$("#confirm-btn").click(function(){
+		if(!$("#account").val().match(/^\S{2,10}$/)){
+			$("#account").focus();
+			return;
+		}else if($("#new-pswd")!=$("#pswd-again")){
+			$("#con").html("<p>两次密码不一样！</p>")
+		}else{
+			$.ajax({
+				type:"POST",
+				url:"changePwd.php",
+				dataType:"json",
+				data:{
+					userAccount:$("#account").val(),
+					oldPassword:$("#old-pswd").value,
+					newPassword:$("#new-pswd").value
+				},
+				success:function(data){
+					if (data.success){
+						$("#con").html('<p>密码修改成功，请重新登录...</p>');
+						self.location.replace("../Login.html");
+					}else{
+						$("#con").html('<p>修改失败，请稍候重试！</p>');
+					}
+				},
+				error:function(jqXHR){
+					alert("发生错误："+jqXHR.status);
+				},
+			});
+		}
+	});
+});

@@ -1,12 +1,17 @@
 .wall {
 	height:700px;
 	width:100%;
-	background-image:url(../images/changePwdBack.jpg);
+	background-image:url(../images/changePwdBack.png);
 }
 
 p {
 	display: inline-block;
 	font-size: 18px;
+}
+
+#con p{
+	color: red;
+	font-size: 14px;
 }
 
 .input-div {

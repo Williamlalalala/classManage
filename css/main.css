@@ -84,7 +84,7 @@ ul{
 .wall1{
 	height: 700px;
 	width: 100%;
-	background-image: url(../images/Studentback.jpg);
+	background-image: url(../images/studentBack.jpg);
 	}
 
 .button{
@@ -103,6 +103,20 @@ ul{
 	line-height: 32px\9;
 	text-indent: 5px;
 	width: 338px;
+}
+
+.back{
+	display: inline-block;
+	width:40px;
+	float: right;
+}
+
+.back a{
+	font-size: 16px;
+}
+
+.homework{
+	margin-top: 20px;
 }
 
 .hide{

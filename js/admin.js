@@ -1,21 +1,8 @@
 $(function() {
-    $(".teacher-information").click(function(){
-        $(".teacher-info").show();
-        $(".course-info").addClass("hide");
-        $(".teacher-information").addClass("active");
-        $(".course-information").removeClass("active");
-    });
-    $(".course-information").click(function(){
-        $(".teacher-info").hide();
-        $(".course-info").removeClass("hide");
-        $(".teacher-information").removeClass("active");
-        $(".course-information").addClass("active");
-    });
-
     var g_table = $("table.teacher-data");
     $.ajax({ 
             type: "GET",    
-            url: "http://127.0.0.1:8080/ajaxdemo/serverjson2.php?action=init_data_list",
+            url: "addTeacher.php?action=init_data_list",
             dataType: "json",
             success: function(data) {
                     var row_items = $.parseJSON(data);
@@ -57,20 +44,12 @@ $(function() {
         var meButton = $(this);
         var meRow = $(this).parent().parent();
         var editRow = $("<tr></tr>");
-        var col_td=$("<td><input type='text' /></td>");
-        col_td.find('input').val(meRow.find('td:eq(0)').html());
-        editRow.append(col_td);
-        col_td=$("<td><input type='text' /></td>");
-        col_td.find('input').val(meRow.find('td:eq(1)').html());
-        editRow.append(col_td);
-        col_td=$("<td><input type='text' /></td>");
-        col_td.find('input').val(meRow.find('td:eq(2)').html());
-        editRow.append(col_td);
-        col_td=$("<td><input type='text' /></td>");
-        col_td.find('input').val(meRow.find('td:eq(3)').html());
-        editRow.append(col_td);
-        col_td=$("<td><button type='button' class='btn btn-info reset-pwd'>重置</button></td>");
-        editRow.append(col_td);
+        for(var i = 0 ; i < 4 ; i++){
+            var editTd = $("<td><input type='text' class='txtField'/></td>");   
+            var v = meRow.find('td:eq('+i+')').html();
+            editTd.find('input').val(v);
+            editRow.append(editTd);
+        }
         var opt_td = $("<td></td>");
         var saveButton = $ ("<button class='btn btn-info' type='button'>保存</button>");
         saveButton.click(function(){
@@ -142,16 +121,10 @@ $(function() {
     //单个添加老师
     $("#add-teacher").click(function(){
         var addRow=$("<tr></tr>");
-        var col_td=$("<td><input type='text' value='' /></td>");
-        addRow.append(col_td);
-        col_td=$("<td><input type='text' value='' /></td>");
-        addRow.append(col_td);
-        col_td=$("<td><input type='text' value='' /></td>");
-        addRow.append(col_td);
-        col_td=$("<td><input type='text' value='' /></td>");
-        addRow.append(col_td);
-        col_td=$("<td><button type='button' class='btn btn-info reset-pwd'>重置</button></td>")
-        addRow.append(col_td);
+        for(var i = 0 ; i < 4 ; i++){
+            var addTd = $("<td><input type='text' class='txtField'/></td>");   
+            addRow.append(addTd);
+        }
         var col_opt=$("<td></td>");
         var confirmBtn=$("<button class='btn btn-info' type='button'>确认</button>");
         confirmBtn.click(function(){
@@ -201,28 +174,7 @@ $(function() {
 
     //以表格文件方式导入教师名单
     $("#import-teachers").click(function(){
-        var teacherList = new FormData();
-        teacherList.append("upfile", $("#btn-file").get(0).files[0]);
-        if (typeof teacherList === 'undefined') {
-            alert('请选择一个文件！');
-            return;
-        }
-            $.ajax({
-                url: "addTeacher?action=add_list.php",
-                type: "POST",
-                data: teacherList,
-                processData: false,  // 告诉jQuery不要去处理发送的数据
-                contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-                success: function(data){
-                if(data.success){
-                    window.location.reload();//由于后端已根据传入文件更改数据库，所以重新加载即可看到新的教师数据
-                }else{
-                    alert("发生错误："+data.msg);
-                }
-            },
-            error: function(jqXHR){
-                alert("发生错误：" + jqXHR.status);
-            }
-            });        
+        openNew("addTeacher.php","add_list");
+        return false;
     });
 });

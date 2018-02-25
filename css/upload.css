@@ -1,0 +1,44 @@
+#mask{
+    background-color: #ccc;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+#upload-wraper{
+	left: 155px;
+    top: 115.5px;
+    position: fixed;
+    z-index: 1001;
+}
+
+.uploadCon{
+	position: relative;
+    width: 500px;
+    height: 200px;
+    background: url(../images/adminBack.png);
+    border-radius: 10px;
+}
+
+#close {
+    background: url(../images/close.png) no-repeat;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    text-indent: -999em;
+}
+
+#btn-file-div{
+	padding-top:60px;
+	text-align: center;
+}
+
+#confirmUploadBtn{
+	margin-left: 203px;
+	margin-top: 30px;
+}
