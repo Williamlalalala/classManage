@@ -3,16 +3,31 @@ $(function(){
     var class_table = $("#class");
     var homework_table = $("#homework");
     var student_table = $("#student");
+    var url=location.search;
+
+function parseQueryString(url) {
+    var obj = {};
+    var keyvalue = [];
+    var key = "",
+        value = "";
+    var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+    for (var i in paraString) {
+        keyvalue = paraString[i].split("=");
+        key = keyvalue[0];
+        value = keyvalue[1];
+        obj[key] = value;
+    }
+    return obj;
+}
 
 /*选择课程界面*/
     $.ajax({ 
-            type: "GET",    
-            url: "teacher.php?action=init_teacher_course_list",
+            type: "GET",
+            url: "/test/php/Teacher/teacher.php?action=init_teacher_course_list",
             dataType: "json",
             success: function(data) {
-                    var row_items = $.parseJSON(data.course_info);
-                    for(var i = 0,j = row_items.length;i<j;i++){
-                        var data_dom = create_course_row(row_items[i]);
+                    for(var i = 0;i<data.length;i++){
+                        var data_dom = create_course_row(data[i]);
                         g_table.append(data_dom);
                     }
             },
@@ -31,6 +46,26 @@ $(function(){
         return row_obj;
     }
 
+    $("#change-pswd").click(function(){
+        window.location.href="../html/Changepwd.html?id=";
+        return false;
+    });
+
+    $("#exit-login").click(function(){
+        $.ajax({ 
+            type: "GET",    
+            url: "teacher.php?action=exit_login",
+            dataType: "json",
+            success: function(data) {
+                window.location.href="../index.html";
+                return false;
+            },
+            error: function(jqXHR){     
+               alert("发生错误：" + jqXHR.status);  
+            },     
+        });
+    });
+
 /*选择教学班界面*/
     //实现事件委托
     g_table.click(function(event){
@@ -40,16 +75,18 @@ $(function(){
             if(target.classList.contains("select-course")){
                 $(".teacher-index").hide();
                 $(".classes").show();
-                var course_name = target.querySelector(".course-to-select").innerTEXT;
+                //var course_name = target.querySelector(".course-to-select").innerTEXT;
                 $.ajax({
                     type:"GET",
-                    url:"teacher.php?action=init_teacher_class_list?Cname=course_name",
+                    url:"/test/php/Teacher/course.php?action=init_teacher_class_list?Cname=course_name",
                     dataType:"json",
+					/*data{
+						'cname':
+					}*/
                     success:function(data){
-                        $(".brand").html(data.Cname);
-                        var row_items = $.parseJSON(data.class_list);
-                        for(var i=0,j=row_items.length;i<j;i++){
-                            var data_dom = create_class_row(row_items[i]);
+                        $(".brand").val(data[0]);
+                        for(var i=1;i<data.length;i++){
+                            var data_dom = create_class_row(data[i]);
                             class_table.append(data_dom);
                         }
                     },
@@ -79,7 +116,9 @@ $(function(){
 
     function delClassHandler(){
         var meButton = $(this);
-        var thisID=meButton.parent().parent().children("td:first-child").val();//获取班级编号
+        var r=confirm("您确定要删除该班级吗？");
+        if(r==true){
+            var thisID=meButton.parent().parent().children("td:first-child").val();//获取班级编号
         $.ajax({
             type:"POST",
             url:"teacher.php",
@@ -89,8 +128,9 @@ $(function(){
                 ClassID:thisID
             },
             success: function(data){
-                if(data.success){
+                if(data){
                     $(meButton).parent().parent().remove;
+                    alert("删除成功！")
                 }else{
                     alert("删除失败……");
                 }
@@ -99,6 +139,9 @@ $(function(){
                 alert("发生错误：" + jqXHR.status);
             },
         });
+        }else{
+            return;
+        }
     }
 
     $("#add-class").click(function(){
@@ -533,5 +576,4 @@ $("#stu-info-to-classes").click(function(){
         $(".classes").show();
         $(".class-manage").hide();
     });
-
 });

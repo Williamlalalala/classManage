@@ -2,13 +2,12 @@ $(function() {
 	var g_table = $("table.student-course");
     $.ajax({ 
             type: "GET",    
-            url: "student.php?action=init_student_course_list",
+            url: "/test/php/Student/student.php?action=init_student_course_list",
             dataType: "json",
             success: function(data) {
-            	$("h3").html("Hello,"+data.name);
-                    var row_items = $.parseJSON(data.course_info);
-                    for(var i = 0,j = row_items.length;i<j;i++){
-                        var data_dom = create_course_row(row_items[i]);
+            	$("h3").html("Hello,"+data[0]);;
+                    for(var i = 1;i<data.length;i++){
+                        var data_dom = create_course_row(data[i]);
                         g_table.append(data_dom);
                     }
             },
@@ -98,5 +97,25 @@ $(function() {
     $("#back").click(function(){
     	$(".student-index").show();
     	$(".homework").hide();
+    });
+
+    $("#change-pswd").click(function(){
+        window.location.href="../html/Changepwd.html?id=";
+        return false;
+    });
+
+    $("#exit-login").click(function(){
+        $.ajax({ 
+            type: "GET",    
+            url: "student.php?action=exit_login",
+            dataType: "json",
+            success: function(data) {
+                window.location.href="../index.html";
+                return false;
+            },
+            error: function(jqXHR){     
+               alert("发生错误：" + jqXHR.status);  
+            },     
+        });
     });
 });

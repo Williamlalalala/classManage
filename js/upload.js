@@ -7,8 +7,6 @@ var sHeight=document.body.scrollHeight;
     var wHeight=document.documentElement.clientHeight;
     
     var oMask=$("<div id='mask'></div>");
-        oMask.height(sHeight);
-        oMask.width(sWidth);
         $(document.body).append(oMask);
     var upLoad=$("<div id='upload-wraper'><div class='uploadCon'><div id='close'>点击关闭</div><div id='btn-file-div'><input type='file' id='btn-file'></div><button class='btn btn-info' type='button' id='confirmUploadBtn'>确认</button></div></div>");
         $(document.body).append(upLoad);

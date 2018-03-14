@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>管理员用户</title>
+	<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
+	<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+	<link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+	<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/admin.css">
+	<link rel="stylesheet" type="text/css" href="../css/upload.css">
+	<script type="text/javascript" src="../js/upload.js"></script>
+</head>
+<body class="admin-back">
+<div>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-target=".navbar-responsive-collapse" data-toggle="collapse"></a> <a class="brand" href="#">管理员</a>
+				<div class="nav-collapse collapse navbar-responsive-collapse">
+					<ul class="nav">
+						<li class="active teacher-information">
+							<a>教师信息</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a id="change-pswd">修改密码</a>
+	<a id="exit-login">注销登录</a>
+	<div class="teacher-info">
+		<table class="table table-hover table-bordered teacher-data">
+				<thead>
+					<tr>
+						<th>工号</th>
+						<th>姓名</th>
+						<th>重置密码</th>
+						<th>任教课程</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>123456</td>
+						<td>Linda</td>
+						<td><input type="submit" value="重置"></td>
+						<td><input type="submit" value="查看"></td>
+						<td><input type='submit' value='编辑'><input type='submit' value='删除'></td>
+					</tr>
+				</tbody>
+		</table>
+		<button class="btn btn-info btn-large" type="button" id="add-teacher">单个增加</button>
+		<button class="btn btn-info btn-large" type="button" id="import-teachers">导入名单</button>
+	</div>
+</div>
+<section id="light" class="hide">
+	<div class="nav1">
+		<div><span id="show-Tname">白忠建</span><span id="show-TID">&nbsp;&nbsp;1234567890</span></div>
+		<div id="close-course"></div>
+	</div>
+	<div class="well course-list">
+		<table class="table" id="course-table">
+		<thead>
+			<tr>
+				<th>课程ID</th>
+				<th>课程名称</th>
+				<th>课程备注</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>123456</td>
+				<td>操作系统基础</td>
+				<td>lalalala</td>
+				<td><input type='submit' value='删除'></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<div>
+		<button class="btn btn-info" type="button" id="add-course">添加课程</button>
+	</div>
+</section>
+<div id="fade" class="hide">
+</div> 
+<script type="text/javascript" src="../js/admin.js"></script>
+</body>
+</html>

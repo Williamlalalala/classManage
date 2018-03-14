@@ -4,20 +4,24 @@
     position: absolute;
     left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1000;
 }
 
 #upload-wraper{
-	left: 155px;
-    top: 115.5px;
-    position: fixed;
+	left: 30%;
+    top: 30%;
+    width: 40%;
+    height: 40%;
+    position: absolute;
     z-index: 1001;
 }
 
 .uploadCon{
 	position: relative;
-    width: 500px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     background: url(../images/adminBack.png);
     border-radius: 10px;
 }
@@ -34,11 +38,11 @@
 }
 
 #btn-file-div{
-	padding-top:60px;
+	padding-top:15%;
 	text-align: center;
 }
 
 #confirmUploadBtn{
-	margin-left: 203px;
+	margin-left: 30%;
 	margin-top: 30px;
 }

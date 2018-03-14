@@ -1,0 +1,89 @@
+1、教师集合中包含教师文档
+2、每个教师文档有唯一的TID号
+3、每个教师文档包含教师ID：TID，教师姓名：Tname，教师密码：Tpswd，教师所授课程数组：Course
+4、课程数组中每个元素为一个课程文档，课程文档中记录单个课程相关信息
+5、每个课程文档包含课程编号：CID，课程名称：Cname，课程备忘：Clog，该课程所包含学生数组：Student，作业信息文档数组：HLog
+6、作业信息文档中的作业信息数组每个元素为一个作业信息文档，作业信息文档中记录该课程下的单个学作业布置相关信息
+7、每个作业信息文档包含作业ID：HID，作业名称：Hname，作业信息：Hmassage，截至日期：Deadline
+8、课程文档中的学生数组每个元素为一个学生文档，学生文档中记录该课程下的单个学生相关信息
+9、每个学生文档包含学生ID：SID，学生姓名：Sname，该学生提交的本课程的作业数组：Homework
+10、该学生提交的本课程的作业数组每个元素为一个作业文档，作业文档中记录单个作业的信息
+11、作业文档中包含作业ID：HID，作业名称：Fname，作业内容：Content
+12、学生集合中包含学生文档
+13、每个学生文档有唯一的SID号
+14、每个学生文档包含学生ID：SID，学生姓名：Sname，学生密码：Spswd，学生所学课程数组：Course
+15、学生所学课程数组每个元素为一个课程文档，课程文档中记录单个课程相关信息
+16、每个课程文档包含课程名称，所授课程教师ID：TID，所授课程教师姓名：Tname，课程作业数组：Homework
+17、课程作业数组中每个元素为一个作业文档，作业文档中记录单个作业的信息
+18、作业文档中包含作业ID：HID，作业名称：Fname，作业内容：Content
+19、管理员集合中包含管理员文档
+20、每个管理员有唯一的AID号
+21、每个管理员文档包含：管理员ID：AID，管理员密码：Apswd
+
+//数据库
+|---//教师集合
+|---//学生集合
+|---//管理员集合
+
+//教师集合：
+{
+TID: TEACHER_ID,		//教师ID
+Tname:TEACHER_NAME,		//教师姓名
+Tpswd:TEACHER_PASS, 	//教师密码
+Course:[				//课程数组 
+    {
+		CID:COURSE_ID,				//课程编号
+		Cname:COURSE_NAME,			//课程名称
+		Clog:COURSE_CONTENT,		//课程备忘
+		HLog:[				//课程作业
+				{
+					HID:HOMEWORK_ID				//作业ID
+					Hname:HOMEWORK_NAME,		//作业名称
+					Hmassage:HOMEWORK_MASSAGE,	//作业信息
+					Deadline:TIME				//截止日期
+				}
+		]
+		Student:[					//课程所包含的学生数组
+				{
+					SID:STUDENT_ID,			//学生ID
+					Sname:STUDENT_NAME,		//学生姓名
+					Homework:[				//作业数组
+						{
+							HID:HOMEWORK_ID				//作业ID
+							Fname:HOMEWORK_NAME,		//作业名称
+							Content:HOMEWORK_CONTENT,	//作业内容
+						}
+							 ]
+				}
+				]
+	}
+	   ]
+}
+
+//学生集合
+{
+   SID:STUDENT_ID, 				//学生ID
+   Sname:STUDENT_NAME,			//学生姓名
+   Spswd:STUDENT_PASSWORD, 		//学生密码
+   Course:[						//学生课程数组
+		{	
+			CID:COURSE_ID,				//课程编号
+			Cname: COURSE_NAME,	//课程名称
+			TID:TEACHER_ID,		//教师ID
+			Tname:TEACHER_NAME,	//教师姓名
+			Homework:[			//该课程作业数组
+					{
+						HID:HOMEWORK_ID				//作业ID
+						Fname:HOMEWORK_NAME,		//作业名称
+						Content:HOMEWORK_CONTENT,	//作业内容
+					}
+					 ] 
+		}
+		  ]
+}  
+
+//管理员集合
+{
+	AID:ADMIN_ID,			//管理员ID
+	Apswd:ADMIN_PASSWORD	//管理员密码
+}

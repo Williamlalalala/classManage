@@ -66,13 +66,31 @@ ul{
 	float: left;
 }
 
+#con p{
+	color: red;
+}
+
 .cheked{position: relative;top: 3px;margin-right: 3px;}
 
 .login_btn{
 	width: 352px;
-	height: 50px;
-	background: url(../images/login_btn.png) left top no-repeat;
-	margin: 25px 0px;
+	height: 40px;
+	margin-top:25px;
+	border: 0px;
+    display: inline-block;
+    border-radius: 4px;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #3f89ec;
+    color: #fff;
+    width: 100%;
 }
 
 .wall{
@@ -117,6 +135,50 @@ ul{
 
 .homework{
 	margin-top: 20px;
+}
+
+.remember{
+	color: #666;
+	font-size: 18px;
+}
+
+#check{
+	margin: 20px auto;
+}
+
+#check span{
+	position: relative;
+}
+
+#check .input_check{
+	position: absolute;
+	visibility: hidden;
+}
+
+#check .input_check+label{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 1px solid #ffffff;
+	margin-bottom: 0px;
+}
+
+#check .input_check:checked+label:after{
+	content: "";
+	position: absolute;
+	left: 2px;
+	bottom: 8px;
+	width: 9px;
+	height: 4px;
+	border: 2px solid #fff8fa;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	transform: rotate(-45deg);
+}
+
+.radio-button{
+	color: #666;
+	font-size: 16px;
 }
 
 .hide{

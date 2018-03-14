@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>管理员登录</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+    <link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    	.login-box{
+    		height: 400px;
+    		display: -webkit-flex;
+    		display:         flex;
+    		-webkit-align-items: center;
+    		align-items: center;
+    		-webkit-justify-content: center;
+    		justify-content: center;
+    	}
+    	#con p{
+    		color: red;
+    	}
+    	body{
+    		background-image: url(../images/adminLoginBack.png);
+    	}
+    </style>
+</head>
+<body>
+	<div class="container-fluid login-box">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<div id="con"></div>
+					<form role="form">
+						<div class="form-group">
+							 
+							<label for="account">
+								账号：
+							</label>
+							<input type="text" class="form-control" id="account" />
+						</div>
+						<div class="form-group">
+							 
+							<label for="password">
+								密码：
+							</label>
+							<input type="password" class="form-control" id="password" />
+						</div>
+						<button type="submit" class="btn btn-primary login_btn">
+							登录
+						</button>
+					</form>
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(".login_btn").click(function(){
+		if(!$("#account").val().match(/^\d{2,14}$/)){
+			alert("帐号格式不对！");
+			$("#account").focus();
+			return;
+		}else if(!$("#password").val().match(/^[0-9A-z]{6,18}$/)){
+			alert("密码需为6-16位数字或者字母！");
+			$("#password").focus();
+			return;
+		}
+		else{
+			$.ajax({
+				type:"POST",
+				url:"/test/php/checkAdmin.php",
+				data:{
+					'id':$("#account").val(),
+					'pswd':$("#password").val()
+				},
+				dataType:"json",
+				success:function(data){
+					if (data.result){
+						$("#con").html('<p>登录成功，跳转中...</p>');
+						window.location.href="/test/html/admin.html";
+						return false;
+					}else{
+						$("#con").html('<p>帐号或密码错误！</p>');
+					}
+				},
+				error:function(jqXHR){
+					alert("发生错误："+jqXHR.status);
+				},
+			});
+		}
+	});
+</script>
+</body>
+</html>

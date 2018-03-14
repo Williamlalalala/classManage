@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>学生用户</title>
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+    <link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/upload.css">
+    <script type="text/javascript" src="../js/cookie.js"></script>
+    <script type="text/javascript" src="../js/upload.js"></script>
+</head>
+<body class="wall1">
+  <section class="container-fluid student-index">
+    <h3 class="text-primary text-left">Hello,XXX</h3>
+    <a id="change-pswd">修改密码</a>
+    <a href="exit-login">注销登录</a>
+    <div class="well">
+      <div>
+        <table class="table table-striped table-bordered table-hover student-course">
+          <thead>
+            <tr>
+              <th>编号</th><th text-align="center" scope="col">课程名称</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="select-course">
+              <td>1</td>
+              <td><a class="course-to-select">C++程序设计</a></td>
+            </tr>
+            <tr class="select-course">
+              <td>2</td>
+              <td><a class="course-to-select">数据库原理及应用</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="homework hide">
+    <div class="container-fluid">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-target=".navbar-responsive-collapse" data-toggle="collapse"></a> <a class="brand" href="#">C++程序设计</a>
+          </div>
+        </div>
+      </div>
+      <div class="well">
+        <div>
+          <table class="table table-striped table-bordered table-hover" id="homework">
+            <thead>
+              <tr>
+                <th>作业名称</th>
+                <th>作业摘要</th>
+                <th>截止日期</th>
+                <th>提交时间</th>
+                <th>下载作业文档</th>
+                <th>上传作业</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>第一次 实践作业</td>
+                <td></td>
+                <td>2017/09/22</td>
+                <td>未提交</td>
+                <td><input type="submit" value="下载"/></td>
+                <td><input type="submit" value="上传" id="upload"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="back"><a id="back">返回</a></div>
+    </div>
+  </section>
+  <script src="../js/student.js"></script>
+</body>
+</html>
